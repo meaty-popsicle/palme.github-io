@@ -1,3 +1,9 @@
+---
+layout: page
+title: "Olof Palme — Statsminister & Mordet 1986"
+description: "En artikel om Olof Palmes liv, politiska karriär och det olösta mordet den 28 februari 1986."
+---
+
 ![Olof Palme](palme.png)
 
 Olof Palme var en svensk statsminister. Fodd i Stockholm pa 30 januari 1927. Palme var en Livslång politiker, han borjade sins politiks karriar i 1953 som personnel sekreterare till statsminister Tage Erlander. Han klättrade uppför karriärstegen genom manga politik positioner, liksom kommunikationsminister i 1965 och utbildningsminister i 1968. I 1969 Palme valdes till partiordförande for Socialdemokraterna och statsminister kort därefter. Hon blev statsminister under den perion fran 1969 till 1976 som kallas "Palme Regering I", och fran 1982  till 1986 "Palme Regering II". 
