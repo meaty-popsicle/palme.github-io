@@ -1,0 +1,40 @@
+
+# Site settings
+title: "Olof Palme — Statsminister & Mordet 1986"
+description: "En artikel om Olof Palmes liv, politiska karriär och det olösta mordet den 28 februari 1986."
+url: "https://palme.miken.se"
+lang: sv
+ 
+# Author
+author:
+  name: "Mike"
+ 
+# Theme — Minima is clean, readable, and built into GitHub Pages
+theme: minima
+ 
+# Minima skin options: default, solarized, solarized-dark, dark
+minima:
+  skin: dark
+ 
+# Build settings
+markdown: kramdown
+highlighter: rouge
+ 
+kramdown:
+  input: GFM
+  hard_wrap: false
+ 
+# Permalink style for a single article — keeps the URL clean at /
+permalink: pretty
+ 
+# Exclude files from the build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+ 
+# Plugins supported by GitHub Pages
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+ 
