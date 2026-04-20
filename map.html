@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.8">
+    <meta name="referrer" content="origin">
+    <title>Palme Route — Minimal</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body { margin: 0; }
+        #map { height: 100vh; width: 100vw; }
+        .route-label {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #555;
+            border-radius: 3px;
+            padding: 2px 6px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #333;
+            max-width: 300px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        .witness-label {
+            background: rgba(41, 128, 185, 0.9);
+            border: 1px solid #1a5276;
+            border-radius: 3px;
+            padding: 2px 6px;
+            font-size: 12px;
+            color: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            max-width: 300px;
+            white-space: normal;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const routeData = {"type":"Feature","properties":{},"geometry":{"type":"LineString","coordinates":[[18.06003,59.33915],[18.06034,59.33881],[18.06039,59.33875],[18.06039,59.33875],[18.06055,59.33879],[18.06067,59.33883],[18.06067,59.33883],[18.06072,59.33877],[18.06167,59.33778],[18.06176,59.33769],[18.06178,59.33767],[18.0618,59.33765],[18.06184,59.3376],[18.06269,59.33668],[18.06276,59.33661],[18.06276,59.33661],[18.06289,59.33665],[18.0638,59.33689],[18.06418,59.33699],[18.06419,59.33698],[18.06436,59.33702],[18.06434,59.33703],[18.06477,59.33715],[18.06481,59.33715],[18.0649,59.33717],[18.0649,59.33717],[18.06491,59.33715],[18.06493,59.3371],[18.06493,59.3371],[18.06516,59.33712],[18.06592,59.33715],[18.06615,59.33716],[18.06649,59.33718],[18.06668,59.33719],[18.0669,59.3372],[18.06715,59.33721],[18.06736,59.33722],[18.06736,59.33722],[18.06733,59.33743],[18.06729,59.33761],[18.06729,59.33765],[18.06722,59.33801]]}};
+
+        const map = L.map('map');
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
+        }).addTo(map);
+
+        // Split route at Skjutplats
+        const allCoords = routeData.geometry.coordinates;
+        const splitIndex = allCoords.findIndex(c => Math.abs(c[0] - 18.06276) < 0.0001 && Math.abs(c[1] - 59.33661) < 0.0001);
+        const solidCoords = allCoords.slice(0, splitIndex + 1);
+        const dashedCoords = allCoords.slice(splitIndex);
+
+        // --- Route layers ---
+        const palmeRoute = L.polyline(
+            solidCoords.map(c => [c[1], c[0]]),
+            { color: '#e74c3c', weight: 5, opacity: 0.85 }
+        );
+        const escapeRoute = L.polyline(
+            dashedCoords.map(c => [c[1], c[0]]),
+            { color: '#e74c3c', weight: 5, opacity: 0.85, dashArray: '10, 8' }
+        );
+
+        // --- Start/End markers layer ---
+        const startMarker = L.circleMarker([allCoords[0][1], allCoords[0][0]], {
+            radius: 8, color: '#27ae60', fillColor: '#2ecc71', fillOpacity: 1, weight: 2
+        }).bindPopup('Start');
+        const endMarker = L.circleMarker([allCoords[allCoords.length-1][1], allCoords[allCoords.length-1][0]], {
+            radius: 8, color: '#c0392b', fillColor: '#e74c3c', fillOpacity: 1, weight: 2
+        }).bindPopup('End');
+        const markersGroup = L.layerGroup([startMarker, endMarker]);
+
+        // --- Annotations layer ---
+        const annotationsGroup = L.layerGroup([
+            { lat: 59.33915, lng: 18.06003, text: "Grand Bio" },
+            { lat: 59.33661, lng: 18.06277, text: "Skjutplats" },
+            { lat: 59.33761, lng: 18.06020, text: "Olof Palmes Grav" },
+            { lat: 59.33801, lng: 18.06729, text: "Murderer last seen" }
+        ].map(a =>
+            L.tooltip({
+                permanent: true,
+                direction: 'top',
+                className: 'route-label',
+                offset: [0, -8]
+            }).setLatLng([a.lat, a.lng]).setContent(a.text)
+        ));
+
+        // --- Witness sightings layer ---
+        const witnessGroup = L.layerGroup([
+            { lat: 59.33685, lng: 18.06350, text: "Witness \"Lars\" — saw murderer from behind barracks at close range" },
+            { lat: 59.33700, lng: 18.06500, text: "Top of Tunnelgatan stairs — ~20 witnesses confirmed murderer ran up here" },
+            { lat: 59.33715, lng: 18.06600, text: "Witness \"Yvonne N\" — saw murderer running east on David Bagares gata" },
+            { lat: 59.33801, lng: 18.06800, text: "Taxi driver at Snickarbacken — saw man enter a green/dark-blue VW Passat" }
+        ].map(w => {
+            const marker = L.circleMarker([w.lat, w.lng], {
+                radius: 6, color: '#2980b9', fillColor: '#3498db', fillOpacity: 0.8, weight: 2
+            });
+            marker.bindTooltip(w.text, {
+                permanent: true,
+                direction: 'right',
+                className: 'witness-label',
+                offset: [8, 70]
+            });
+            return marker;
+        }));
+
+        // Add all layers to map by default
+        palmeRoute.addTo(map);
+        escapeRoute.addTo(map);
+        markersGroup.addTo(map);
+        annotationsGroup.addTo(map);
+        witnessGroup.addTo(map);
+
+        // Layer control — toggle overlays on/off via checkboxes
+        L.control.layers(null, {
+            "Palme's route": palmeRoute,
+            "Escape route": escapeRoute,
+            "Start / End markers": markersGroup,
+            "Annotations": annotationsGroup,
+            "Witness sightings": witnessGroup
+        }, { collapsed: false }).addTo(map);
+
+        // Fit view
+        const fullBounds = palmeRoute.getBounds().extend(escapeRoute.getBounds());
+        map.fitBounds(fullBounds, { padding: [40, 40] });
+    </script>
+</body>
+</html>
