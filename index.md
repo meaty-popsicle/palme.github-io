@@ -14,19 +14,17 @@ Palme var en stark och ofta kontroversiell ledare, men också en mycket viktig p
 
 # Mord
 
+<iframe src="map.html" width="80%" height="700px" style="border:2px solid blue;"></iframe>
+
 Olof Palme var mordrad Fredagen den 28 ferbruari 1986, efter han med sin familj hade besokt Grand bio pa Sveavägen 45. 
 
 Palme var skjuten i ryggen och hans fru Lisbeth Palme var skadad men överlevde attacken. Detta hände vid korsningen mellan Sveavagen och Tunnelgatan Mordet chockade hela Sverige och blev en av de mest kända kriminalfallen i landets historia. Efter mordet startade en stor polisutredning, men under manga ar kunde man inte hitta en tydlig losning. Flera personer blev misstänkta och manga teorier spreds i medier och bland folket.
 
-## Ett olöst mord
-
-Mer än 40 år efter skotten på Sveavägen är mordet på Olof Palme fortfarande olöst. Över 10 000 personer har förhörts, 133 personer har erkänt mordet, och Palmeutredningen räknas som en av världens största och dyraste mordutredningar. Mordvapnet har aldrig hittats.
-
-I juni 2020 lade chefsåklagare Krister Petersson ner utredningen och pekade samtidigt ut Stig Engström ("Skandiamannen") som den troliga gärningsmannen. Beslutet kritiserades hårt — bland annat av Justitieombudsmannen som 2021 ansåg att utpekandet stred mot oskuldspresumtionen. I december 2025 fastslog överåklagare Lennart Guné att bevisningen mot Engström inte räckte, och motiveringen till att lägga ner utredningen ändrades: Engström pekas inte längre ut som gärningsman. Det mest sannolika är att mordet aldrig kommer att få en lösning.
-
-<iframe src="map.html" width="80%" height="700px" style="border:2px solid blue;"></iframe>
-
 ## Tidslinje för händelser under mordnatten
+
+![Sabbatsberg sjukhuset circa 1993](sabbatsberg-1993.jpg)
+*Sabbatsberg sjukhuset circa 1993*
+
 
 - 23:15 - Olof & Lisbeth Palme och deras son Mårten lämnade biografen Grand.
 - 23:21 - Palme blir skjuten.
@@ -71,6 +69,17 @@ Högerextremistisk aktivist kopplad till EAP (Europeiska Arbetarpartiet), en LaR
 **Varför misstänkt:** Gunnarsson var aktiv i EAP som öppet fördömde Palme och spred propaganda mot honom. Anti-Palme-flygblad hittades i hans bostad. Ett vittne placerade honom i närheten av mordplatsen den aktuella kvällen, och tips om honom började strömma in till polisen redan dagen efter mordet.
 
 **Varför osannolikt:** Vittnesidentifieringen visade sig vara opålitlig och hans alibi kunde verifieras. Utredningen mot honom lades formellt ner i maj 1987. Gunnarsson mördades själv 1993 i North Carolina av en före detta polis i ett ärende som inte hade koppling till Palme-mordet.
+
+## Ett olöst mord
+
+![Hans.jpg](Hans.jpg)
+*Dåvarande länspolismästare Hans Holmér var den förste som ledde mordspaningarna och utredningen av mordet på Olof Palme. Här ses han redogöra för mördarens flyktväg vid en presskonferens två dagar efter mordet*
+
+Mer än 40 år efter skotten på Sveavägen är mordet på Olof Palme fortfarande olöst. Över 10 000 personer har förhörts, 133 personer har erkänt mordet, och Palmeutredningen räknas som en av världens största och dyraste mordutredningar. Mordvapnet har aldrig hittats.
+
+I juni 2020 lade chefsåklagare Krister Petersson ner utredningen och pekade samtidigt ut Stig Engström ("Skandiamannen") som den troliga gärningsmannen. Beslutet kritiserades hårt — bland annat av Justitieombudsmannen som 2021 ansåg att utpekandet stred mot oskuldspresumtionen. I december 2025 fastslog överåklagare Lennart Guné att bevisningen mot Engström inte räckte, och motiveringen till att lägga ner utredningen ändrades: Engström pekas inte längre ut som gärningsman. Det mest sannolika är att mordet aldrig kommer att få en lösning.
+
+
 
 ## Källor
 
